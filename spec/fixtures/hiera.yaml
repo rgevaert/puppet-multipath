@@ -1,0 +1,12 @@
+---
+version: 5
+
+defaults:
+  data_hash: 'yaml_data'
+  datadir: 'spec/fixtures/data'
+
+hierarchy:
+  - name: "default"
+    paths:
+      - '%{::clientcert}'
+      - 'default'
