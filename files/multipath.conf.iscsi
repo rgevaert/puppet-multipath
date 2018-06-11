@@ -1,0 +1,1 @@
+command[check_multipath]=/usr/bin/sudo /usr/lib64/nagios/plugins/restricted/check-multipath.pl -l " " --min-paths 4 --ok-paths 4
