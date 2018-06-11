@@ -1,7 +1,7 @@
 # Manage multipath service
 class multipath (
   Integer $verbosity=2,
-  Optional[Hash[String,String]] $aliases  = undef
+  Optional[Hash[String,String]] $aliases  = {}
 ) {
   class {
     'multipath::install':;
@@ -11,4 +11,6 @@ class multipath (
   }
 
   Class['multipath::install'] -> Class['multipath::config'] -> Class['multipath::service']
+
+  create_resources('multipath::alias', $aliases, {})
 }
