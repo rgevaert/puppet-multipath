@@ -46,6 +46,19 @@ describe 'multipath' do
           it { is_expected.to contain_multipath__alias('mylun') }
           it { is_expected.to contain_augeas('alias_mylun') }
         end
+
+        context "multipath class device in hash" do
+          let :params do
+          {
+            :devices => {'mydevice' => { 'vendor' => 'myvendor' }}
+          }
+          end
+
+          it { is_expected.to compile.with_all_deps }
+          it { is_expected.to have_multipath__device_resource_count(1) }
+          it { is_expected.to contain_multipath__device('mydevice') }
+          it { is_expected.to contain_augeas('device_mydevice') }
+        end
       end
     end
   end
