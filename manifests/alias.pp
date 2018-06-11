@@ -1,5 +1,11 @@
 # Add a multipath::alias
-define multipath::alias ( $wwid, $path_grouping_policy='', $path_selector='', $failback='', $no_path_retry='', $rr_min_io='')
+define multipath::alias (
+  String $wwid
+  String $path_grouping_policy = '',
+  String $path_selector = '',
+  String $failback = '',
+  String $no_path_retry = '',
+  String $rr_min_io = '')
 {
 
   $pgp = $path_grouping_policy ? {

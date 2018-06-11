@@ -1,6 +1,8 @@
 # Manage multipath service
-class multipath (Integer $verbosity=2)
-{
+class multipath (
+  Integer $verbosity=2,
+  Optional[Hash[String,String]] $aliases  = undef
+) {
   class {
     'multipath::install':;
     'multipath::config':
