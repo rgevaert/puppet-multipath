@@ -1,6 +1,6 @@
 # Add a multipath::alias
 define multipath::alias (
-  String $wwid
+  String $wwid,
   String $path_grouping_policy = '',
   String $path_selector = '',
   String $failback = '',
